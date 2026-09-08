@@ -1,1 +1,1247 @@
+/* =========================================================
+   PIBBOTOWN — MAIN STYLESHEET
+   ========================================================= */
 
+:root {
+  --yellow: #F7C13B;
+  --cream: #FBF8F2;
+  --olive: #2E341A;
+  --green: #3F562A;
+  --white: #FFFFFF;
+  --soft-yellow: #FFF1C7;
+  --border: rgba(46, 52, 26, 0.16);
+  --shadow: 0 18px 45px rgba(46, 52, 26, 0.10);
+
+  --heading-font: "Fraunces", Georgia, serif;
+  --body-font: "Manrope", Arial, sans-serif;
+
+  --container: 1180px;
+  --radius: 24px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  background: var(--cream);
+  color: var(--olive);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(4rem, 8vw, 7.5rem);
+}
+
+h2 {
+  font-size: clamp(2.8rem, 5vw, 5rem);
+}
+
+h3 {
+  font-size: 1.55rem;
+}
+
+p {
+  color: rgba(46, 52, 26, 0.78);
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(251, 248, 242, 0.94);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+}
+
+.header-inner {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 82px;
+  height: auto;
+  object-fit: contain;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.desktop-nav > a:not(.whatsapp-nav) {
+  position: relative;
+}
+
+.desktop-nav > a:not(.whatsapp-nav)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--yellow);
+  transition: width 0.25s ease;
+}
+
+.desktop-nav > a:not(.whatsapp-nav):hover::after {
+  width: 100%;
+}
+
+.whatsapp-nav {
+  padding: 13px 21px;
+  border-radius: 999px;
+  background: var(--olive);
+  color: var(--white);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.whatsapp-nav:hover {
+  transform: translateY(-2px);
+  background: var(--green);
+}
+
+.menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 19px;
+  height: 2px;
+  margin: 4px auto;
+  background: var(--olive);
+  transition: transform 0.25s ease;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button-primary {
+  background: var(--olive);
+  color: var(--white);
+}
+
+.button-primary:hover {
+  background: var(--green);
+}
+
+.button-light {
+  background: var(--white);
+  color: var(--olive);
+}
+
+.button-light:hover {
+  background: var(--yellow);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  min-height: calc(100vh - 88px);
+  display: flex;
+  align-items: center;
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  right: -200px;
+  top: -170px;
+  border-radius: 50%;
+  background: rgba(247, 193, 59, 0.18);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero .eyebrow {
+  display: inline-flex;
+  padding: 10px 17px;
+  margin-bottom: 26px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--olive);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  max-width: 700px;
+  margin-bottom: 28px;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--yellow);
+  -webkit-text-stroke: 1.5px var(--olive);
+  text-shadow: 3px 3px 0 var(--olive);
+}
+
+.hero-description {
+  max-width: 570px;
+  margin-bottom: 32px;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-note {
+  margin-top: 18px;
+  font-size: 0.78rem;
+  color: rgba(46, 52, 26, 0.58);
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-placeholder {
+  position: relative;
+  width: min(500px, 100%);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 28px 30px 0 var(--olive);
+  transform: rotate(2deg);
+}
+
+.placeholder-chameleon {
+  font-size: clamp(7rem, 15vw, 13rem);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.hero-image-placeholder p {
+  max-width: 190px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: var(--olive);
+  color: var(--white);
+  font-family: var(--heading-font);
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* =========================================================
+   WHATSAPP SECTION
+   ========================================================= */
+
+.whatsapp-section {
+  padding: 65px 0;
+  background: var(--olive);
+  color: var(--white);
+}
+
+.whatsapp-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.whatsapp-section .section-label {
+  color: var(--yellow);
+}
+
+.whatsapp-section h2 {
+  margin-bottom: 8px;
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+}
+
+.whatsapp-section p:not(.section-label) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================================
+   ABOUT PREVIEW
+   ========================================================= */
+
+.about-preview {
+  padding: 130px 0;
+}
+
+.about-preview-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: end;
+}
+
+.about-preview h2 {
+  max-width: 580px;
+}
+
+.about-preview-text {
+  max-width: 510px;
+}
+
+.about-preview-text p {
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.text-link {
+  display: inline-block;
+  font-weight: 800;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 4px;
+  transition: transform 0.2s ease;
+}
+
+.text-link:hover {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+.products-section {
+  padding: 120px 0;
+  background: #F5EFD9;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 55px;
+}
+
+.section-heading h2 {
+  max-width: 650px;
+}
+
+.section-heading > p {
+  max-width: 360px;
+  font-size: 0.98rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--cream);
+  box-shadow: 0 10px 30px rgba(46, 52, 26, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+
+.product-image {
+  aspect-ratio: 1 / 1;
+  padding: 18px;
+  background: var(--soft-yellow);
+}
+
+.product-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 1px dashed rgba(46, 52, 26, 0.25);
+  color: rgba(46, 52, 26, 0.48);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.product-card-content {
+  padding: 28px;
+}
+
+.product-type {
+  margin-bottom: 9px;
+  color: var(--green);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+}
+
+.product-card-content > p:not(.product-type) {
+  min-height: 54px;
+  font-size: 0.9rem;
+}
+
+.product-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.starting-price {
+  font-size: 0.72rem;
+  color: rgba(46, 52, 26, 0.52);
+}
+
+.product-link {
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+  padding: 130px 0;
+}
+
+.process-heading {
+  margin-bottom: 65px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.process-step {
+  position: relative;
+  min-height: 260px;
+  padding: 28px 20px;
+  border-top: 2px solid var(--olive);
+}
+
+.step-number {
+  display: block;
+  margin-bottom: 30px;
+  color: var(--yellow);
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  font-weight: 700;
+  -webkit-text-stroke: 1px var(--olive);
+}
+
+.step-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: var(--yellow);
+  font-size: 1.35rem;
+}
+
+.process-step h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.process-step p {
+  font-size: 0.84rem;
+}
+
+
+/* =========================================================
+   PIBBO STORY
+   ========================================================= */
+
+.pibbo-story {
+  position: relative;
+  height: 260vh;
+  background: var(--yellow);
+}
+
+.pibbo-story-sticky {
+  position: sticky;
+  top: 88px;
+  height: calc(100vh - 88px);
+  overflow: hidden;
+}
+
+.pibbo-story-inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.pibbo-story-text {
+  max-width: 500px;
+}
+
+.pibbo-story-text .section-label {
+  color: var(--olive);
+}
+
+.pibbo-story-text h2 {
+  margin-bottom: 20px;
+}
+
+.pibbo-story-text p:last-child {
+  font-size: 1.1rem;
+}
+
+.pibbo-character-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pibbo-character {
+  width: min(390px, 70%);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 25px 25px 0 var(--olive);
+  font-size: clamp(7rem, 14vw, 12rem);
+  transition: transform 0.6s ease;
+}
+
+
+/* =========================================================
+   OUR WORK
+   ========================================================= */
+
+.work-section {
+  padding: 130px 0;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  grid-template-rows: 300px 300px;
+  gap: 18px;
+}
+
+.work-image {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--soft-yellow);
+}
+
+.work-large {
+  grid-row: span 2;
+}
+
+.work-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(46, 52, 26, 0.45);
+  border: 1px dashed rgba(46, 52, 26, 0.22);
+  margin: 0;
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.benefits-section {
+  padding: 120px 0;
+  background: var(--green);
+  color: var(--white);
+}
+
+.benefits-heading {
+  margin-bottom: 65px;
+}
+
+.benefits-heading .section-label {
+  color: var(--yellow);
+}
+
+.benefits-heading h2 {
+  max-width: 650px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.benefit {
+  padding: 25px 30px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefit:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.benefit span {
+  display: block;
+  margin-bottom: 35px;
+  color: var(--yellow);
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+}
+
+.benefit h3 {
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+}
+
+.benefit p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 80px 0 25px;
+  background: var(--olive);
+  color: var(--white);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 70px;
+}
+
+.footer-logo {
+  width: 90px;
+  margin-bottom: 18px;
+}
+
+.footer-brand p {
+  max-width: 230px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--heading-font);
+  font-size: 1.35rem;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-column h3 {
+  margin-bottom: 8px;
+  color: var(--yellow);
+  font-family: var(--body-font);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--yellow);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .desktop-nav {
+    gap: 20px;
+  }
+
+  .hero-grid {
+    gap: 50px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-card:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 12px);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 0;
+  }
+
+  .benefit:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .footer-main {
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-row: span 2;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .container {
+    width: min(var(--container), calc(100% - 32px));
+  }
+
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .brand-logo {
+    width: 68px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px 16px 22px;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+
+  .mobile-menu a:hover {
+    background: var(--soft-yellow);
+  }
+
+  .mobile-whatsapp {
+    margin-top: 5px;
+    background: var(--olive);
+    color: var(--white);
+    text-align: center;
+  }
+
+
+  /* Hero */
+
+  .hero {
+    min-height: auto;
+    padding: 70px 0 90px;
+  }
+
+  .hero::before {
+    width: 400px;
+    height: 400px;
+    right: -220px;
+    top: -100px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 65px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.4rem, 17vw, 5rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    padding: 0 20px;
+  }
+
+  .hero-image-placeholder {
+    width: min(390px, 100%);
+    box-shadow: 17px 18px 0 var(--olive);
+  }
+
+
+  /* WhatsApp */
+
+  .whatsapp-section {
+    padding: 55px 0;
+  }
+
+  .whatsapp-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .whatsapp-inner .button {
+    width: 100%;
+  }
+
+
+  /* About */
+
+  .about-preview {
+    padding: 90px 0;
+  }
+
+  .about-preview-inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-preview-text p {
+    font-size: 1rem;
+  }
+
+
+  /* Products */
+
+  .products-section {
+    padding: 90px 0;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 38px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card:last-child {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .product-card-content {
+    padding: 23px;
+  }
+
+
+  /* Process */
+
+  .process-section {
+    padding: 90px 0;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .process-step {
+    min-height: auto;
+    padding: 25px 0 35px 65px;
+    border-top: 1px solid var(--border);
+  }
+
+  .step-number {
+    position: absolute;
+    left: 0;
+    top: 25px;
+  }
+
+  .step-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 15px;
+  }
+
+
+  /* Pibbo story */
+
+  .pibbo-story {
+    height: 220vh;
+  }
+
+  .pibbo-story-sticky {
+    top: 72px;
+    height: calc(100vh - 72px);
+  }
+
+  .pibbo-story-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    align-content: center;
+    gap: 30px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .pibbo-story-text h2 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+
+  .pibbo-character {
+    width: min(290px, 72%);
+    box-shadow: 15px 15px 0 var(--olive);
+  }
+
+
+  /* Work */
+
+  .work-section {
+    padding: 90px 0;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 180px;
+    gap: 10px;
+  }
+
+  .work-large {
+    grid-row: span 1;
+    grid-column: span 2;
+  }
+
+
+  /* Benefits */
+
+  .benefits-section {
+    padding: 90px 0;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit,
+  .benefit:first-child,
+  .benefit:nth-child(3) {
+    padding: 25px 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .benefit:first-child {
+    border-top: 0;
+  }
+
+
+  /* Footer */
+
+  .site-footer {
+    padding-top: 65px;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 45px 30px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  h2 {
+    font-size: 2.7rem;
+  }
+
+  .hero {
+    padding-top: 55px;
+  }
+
+  .hero h1 {
+    font-size: 3.3rem;
+  }
+
+  .hero h1 span {
+    text-shadow: 2px 2px 0 var(--olive);
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-image-placeholder {
+    box-shadow: 12px 13px 0 var(--olive);
+  }
+
+  .product-card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 210px);
+  }
+
+  .work-large {
+    grid-column: auto;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
