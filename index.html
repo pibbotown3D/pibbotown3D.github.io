@@ -2,1006 +2,882 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pibbo Town | Custom 3D Miniatures & 3D Printing</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <meta name="description" content="Pibbo Town creates customized 3D miniatures and professional 3D printing services. You imagine it. We make it.">
+  <meta
+    name="description"
+    content="PibboTown creates personalised 3D miniatures from your favourite photos and memories."
+  >
 
-  <style>
-    :root {
-      --yellow: #F7C13B;
-      --cream: #FBF8F2;
-      --dark: #2E341A;
-      --green: #3F562A;
-      --white: #FFFFFF;
-    }
+  <title>PibboTown — Your Memories, Made Miniature</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    html {
-      scroll-behavior: smooth;
-    }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-    body {
-      font-family: "Sitka Text", Georgia, serif;
-      background: var(--cream);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(251, 248, 242, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid rgba(46, 52, 26, 0.1);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--dark);
-      font-family: "Charming Sixties", "Chango", Georgia, serif;
-      font-weight: 900;
-      font-size: 25px;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      background: var(--yellow);
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-size: 25px;
-      transform: rotate(-3deg);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: bold;
-    }
-
-    .nav-links a:hover {
-      color: var(--green);
-    }
-
-    .cart-button {
-      background: var(--dark);
-      color: var(--cream) !important;
-      padding: 10px 18px;
-      border-radius: 50px;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 720px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-      background:
-        radial-gradient(circle at 85% 20%, rgba(247,193,59,.35), transparent 25%),
-        radial-gradient(circle at 10% 80%, rgba(63,86,42,.18), transparent 25%),
-        var(--cream);
-    }
-
-    .hero-container {
-      max-width: 1200px;
-      width: 100%;
-      margin: auto;
-      padding: 80px 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 50px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      background: var(--yellow);
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-weight: 900;
-      margin-bottom: 20px;
-      transform: rotate(-2deg);
-    }
-
-    h1 {
-      font-family: "Charming Sixties", "Chango", Georgia, serif;
-      font-size: clamp(52px, 7vw, 92px);
-      line-height: .95;
-      letter-spacing: -3px;
-      margin-bottom: 25px;
-    }
-
-    h1 span {
-      color: var(--yellow);
-      display: block;
-      -webkit-text-stroke: 2px var(--dark);
-    }
-
-    .hero-text {
-      font-size: 21px;
-      max-width: 570px;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .button {
-      display: inline-block;
-      text-decoration: none;
-      padding: 15px 25px;
-      border-radius: 50px;
-      font-weight: 900;
-      transition: .25s;
-    }
-
-    .button-primary {
-      background: var(--dark);
-      color: var(--cream);
-    }
-
-    .button-primary:hover {
-      transform: translateY(-3px);
-      background: var(--green);
-    }
-
-    .button-secondary {
-      border: 2px solid var(--dark);
-      color: var(--dark);
-    }
-
-    .button-secondary:hover {
-      background: var(--yellow);
-    }
-
-    /* =========================
-       MASCOT
-    ========================= */
-
-    .mascot-area {
-      min-height: 500px;
-      position: relative;
-      display: grid;
-      place-items: center;
-    }
-
-    .mascot-card {
-      width: min(430px, 90%);
-      aspect-ratio: 1;
-      background: var(--yellow);
-      border-radius: 48% 52% 45% 55%;
-      display: grid;
-      place-items: center;
-      position: relative;
-      transform: rotate(3deg);
-      box-shadow: 20px 25px 0 var(--dark);
-    }
-
-    .chameleon {
-      font-size: 180px;
-      transform: rotate(-5deg);
-      filter: drop-shadow(8px 8px 0 rgba(46,52,26,.2));
-    }
-
-    .mascot-label {
-      position: absolute;
-      bottom: 45px;
-      background: var(--dark);
-      color: var(--cream);
-      padding: 12px 22px;
-      border-radius: 50px;
-      font-weight: 900;
-      transform: rotate(-5deg);
-    }
-
-    .floating-dot {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      background: var(--green);
-      border-radius: 50%;
-    }
-
-    .dot-one {
-      top: 30px;
-      right: 30px;
-    }
-
-    .dot-two {
-      bottom: 40px;
-      left: 20px;
-      width: 45px;
-      height: 45px;
-      background: var(--yellow);
-    }
-
-    /* =========================
-       SECTIONS
-    ========================= */
-
-    section {
-      padding: 100px 24px;
-    }
-
-    .section-container {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .section-heading h2 {
-      font-family: "Charming Sixties", "Chango", Georgia, serif;
-      font-size: clamp(42px, 6vw, 68px);
-      line-height: 1;
-      margin-bottom: 15px;
-    }
-
-    .section-heading p {
-      max-width: 650px;
-      margin: auto;
-      font-size: 18px;
-    }
-
-    /* =========================
-       SERVICES
-    ========================= */
-
-    .services {
-      background: var(--dark);
-      color: var(--cream);
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .service-card {
-      background: var(--cream);
-      color: var(--dark);
-      padding: 40px;
-      border-radius: 30px;
-      border: 3px solid var(--yellow);
-      transition: .25s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-7px) rotate(-1deg);
-    }
-
-    .service-icon {
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
-
-    .service-card h3 {
-      font-family: "Charming Sixties", "Chango", Georgia, serif;
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    /* =========================
-       PRODUCTS
-    ========================= */
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .product-card {
-      background: var(--white);
-      border: 2px solid rgba(46,52,26,.12);
-      border-radius: 28px;
-      overflow: hidden;
-      transition: .25s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 18px 35px rgba(46,52,26,.12);
-    }
-
-    .product-image {
-      height: 270px;
-      background: var(--green);
-      display: grid;
-      place-items: center;
-      font-size: 90px;
-    }
-
-    .product-info {
-      padding: 25px;
-    }
-
-    .product-info h3 {
-      font-size: 23px;
-      margin-bottom: 7px;
-    }
-
-    .price {
-      color: var(--green);
-      font-size: 20px;
-      font-weight: 900;
-      margin: 15px 0;
-    }
-
-    /* =========================
-       HOW IT WORKS
-    ========================= */
-
-    .steps {
-      background: var(--yellow);
-    }
-
-    .step-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .step {
-      background: var(--cream);
-      padding: 30px 20px;
-      border-radius: 25px;
-      text-align: center;
-    }
-
-    .step-number {
-      width: 55px;
-      height: 55px;
-      background: var(--dark);
-      color: var(--yellow);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 20px;
-      font-weight: 900;
-      font-size: 20px;
-    }
-
-    .step h3 {
-      margin-bottom: 8px;
-    }
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-box {
-      background: var(--green);
-      color: var(--cream);
-      padding: 55px;
-      border-radius: 35px;
-      transform: rotate(-2deg);
-    }
-
-    .about-box h2 {
-      font-family: "Charming Sixties", "Chango", Georgia, serif;
-      font-size: 55px;
-      line-height: 1;
-      color: var(--yellow);
-      margin-bottom: 20px;
-    }
-
-    .about-text h2 {
-      font-family: "Charming Sixties", "Chango", Georgia, serif;
-      font-size: 50px;
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    /* =========================
-       CTA
-    ========================= */
-
-    .cta {
-      background: var(--green);
-      color: var(--cream);
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-family: "Charming Sixties", "Chango", Georgia, serif;
-      font-size: clamp(45px, 7vw, 75px);
-      line-height: 1;
-      color: var(--yellow);
-      margin-bottom: 20px;
-    }
-
-    .cta p {
-      font-size: 20px;
-      max-width: 650px;
-      margin: 0 auto 30px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: var(--dark);
-      color: var(--cream);
-      padding: 50px 24px 25px;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    footer a {
-      color: var(--yellow);
-      text-decoration: none;
-    }
-
-    .copyright {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(251,248,242,.15);
-      text-align: center;
-      font-size: 14px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 850px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero-container,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-container {
-        padding-top: 60px;
-        padding-bottom: 70px;
-      }
-
-      .mascot-area {
-        min-height: 400px;
-      }
-
-      .service-grid,
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .step-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      h1 {
-        font-size: 58px;
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      section {
-        padding: 70px 18px;
-      }
-
-      .step-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card {
-        padding: 30px;
-      }
-
-      .about-box {
-        padding: 35px;
-      }
-
-      .chameleon {
-        font-size: 130px;
-      }
-    }
-  </style>
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="nav-container">
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-      <a href="#" class="brand">
-        <span class="brand-mark">🦎</span>
-        Pibbo Town
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand">
+        <img
+          src="Logo.png"
+          alt="PibboTown"
+          class="brand-logo"
+        >
       </a>
 
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#shop">Shop</a>
-        <a href="#how">How It Works</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#shop" class="cart-button">🛒 Cart</a>
-      </div>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="#products">Products</a>
+        <a href="about.html">About Us</a>
 
-    </div>
-  </nav>
+        <a
+          href="#"
+          class="whatsapp-nav"
+          data-whatsapp-link
+        >
+          Chat on WhatsApp
+        </a>
+      </nav>
 
-
-  <!-- HERO -->
-  <header class="hero">
-
-    <div class="hero-container">
-
-      <div>
-
-        <span class="eyebrow">WELCOME TO PIBBO TOWN 🦎</span>
-
-        <h1>
-          YOU IMAGINE.
-          <span>WE CREATE.</span>
-        </h1>
-
-        <p class="hero-text">
-          Customized 3D miniatures and creative 3D printing,
-          made specially for you.
-        </p>
-
-        <div class="buttons">
-          <a href="#shop" class="button button-primary">
-            Explore Pibbos →
-          </a>
-
-          <a href="#contact" class="button button-secondary">
-            Start a Custom Order
-          </a>
-        </div>
-
-      </div>
-
-
-      <div class="mascot-area">
-
-        <div class="floating-dot dot-one"></div>
-        <div class="floating-dot dot-two"></div>
-
-        <div class="mascot-card">
-
-          <div class="chameleon">
-            🦎
-          </div>
-
-          <div class="mascot-label">
-            WE ARE PIBBOS
-          </div>
-
-        </div>
-
-      </div>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
     </div>
 
+    <!-- Mobile menu -->
+
+    <div class="mobile-menu">
+
+      <a href="index.html">Home</a>
+      <a href="#products">Products</a>
+      <a href="about.html">About Us</a>
+
+      <a
+        href="#"
+        class="mobile-whatsapp"
+        data-whatsapp-link
+      >
+        Chat on WhatsApp
+      </a>
+
+    </div>
   </header>
 
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
+  <main>
 
-    <div class="section-container">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-      <div class="section-heading">
+    <section class="hero">
 
-        <h2>WHAT CAN WE CREATE?</h2>
+      <div class="container hero-grid">
 
-        <p>
-          From tiny characters to useful 3D printed objects,
-          Pibbo Town turns ideas into real things.
-        </p>
+        <div class="hero-content">
 
-      </div>
-
-
-      <div class="service-grid">
-
-        <div class="service-card">
-
-          <div class="service-icon">🧍</div>
-
-          <h3>Custom 3D Miniatures</h3>
-
-          <p>
-            Turn yourself, your family, your friends,
-            characters or special memories into unique
-            3D miniatures.
+          <p class="eyebrow">
+            PERSONALISATION • MADE WITH CARE
           </p>
 
-          <br>
+          <h1>
+            Your memories,
+            <span>made miniature.</span>
+          </h1>
 
-          <a href="#contact" class="button button-primary">
-            Create My Miniature →
-          </a>
-
-        </div>
-
-
-        <div class="service-card">
-
-          <div class="service-icon">🖨️</div>
-
-          <h3>3D Printing Services</h3>
-
-          <p>
-            Have your own 3D model?
-            Send it to Pibbo Town and we'll help turn
-            your digital design into a physical object.
+          <p class="hero-description">
+            Turn your favourite people and memories into
+            beautiful personalised 3D miniatures,
+            created from your photos.
           </p>
 
-          <br>
+          <div class="hero-actions">
 
-          <a href="#contact" class="button button-primary">
-            Request a Print →
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SHOP -->
-  <section id="shop">
-
-    <div class="section-container">
-
-      <div class="section-heading">
-
-        <h2>FEATURED PIBBOS</h2>
-
-        <p>
-          Discover some of the things we can bring to life.
-        </p>
-
-      </div>
-
-
-      <div class="product-grid">
-
-
-        <div class="product-card">
-
-          <div class="product-image">
-            🧑‍🎨
-          </div>
-
-          <div class="product-info">
-
-            <h3>Custom Character</h3>
-
-            <p>
-              Your own personalized miniature.
-            </p>
-
-            <div class="price">
-              Custom Quote
-            </div>
-
-            <a href="#contact" class="button button-primary">
-              Customize
+            <a
+              href="#products"
+              class="button button-primary"
+            >
+              Create Your Miniature
             </a>
 
           </div>
 
+          <p class="hero-note">
+            Choose your miniature → choose your size →
+            send us your photos.
+          </p>
+
         </div>
 
 
-        <div class="product-card">
+        <div class="hero-visual">
 
-          <div class="product-image">
-            👫
-          </div>
+          <!--
+            TEMPORARY HERO IMAGE
 
-          <div class="product-info">
+            We will replace this with your actual
+            miniature photography when you provide it.
+          -->
 
-            <h3>Couple Miniature</h3>
+          <div class="hero-image-placeholder">
 
-            <p>
-              A tiny version of two special people.
-            </p>
-
-            <div class="price">
-              Custom Quote
+            <div class="placeholder-chameleon">
+              🦎
             </div>
 
-            <a href="#contact" class="button button-primary">
-              Customize
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="product-card">
-
-          <div class="product-image">
-            🐾
-          </div>
-
-          <div class="product-info">
-
-            <h3>Pet Miniature</h3>
-
             <p>
-              Turn your favorite companion into a keepsake.
+              Your miniature
+              will live here
             </p>
 
-            <div class="price">
-              Custom Quote
-            </div>
-
-            <a href="#contact" class="button button-primary">
-              Customize
-            </a>
-
           </div>
 
         </div>
 
-
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- HOW IT WORKS -->
-  <section class="steps" id="how">
+    <!-- =========================
+         WHATSAPP CTA
+    ========================== -->
 
-    <div class="section-container">
+    <section class="whatsapp-section">
 
-      <div class="section-heading">
+      <div class="container whatsapp-inner">
 
-        <h2>HOW IT WORKS</h2>
-
-        <p>
-          Getting your own Pibbo is simple.
-        </p>
-
-      </div>
-
-
-      <div class="step-grid">
-
-        <div class="step">
-
-          <div class="step-number">01</div>
-
-          <h3>Share Your Idea</h3>
-
-          <p>
-            Tell us what you want to create.
+        <div>
+          <p class="section-label">
+            NEED HELP?
           </p>
 
+          <h2>
+            Have a question?
+          </h2>
+
+          <p>
+            Chat with PibboTown on WhatsApp.
+            We're happy to help you choose.
+          </p>
         </div>
 
-
-        <div class="step">
-
-          <div class="step-number">02</div>
-
-          <h3>We Design</h3>
-
-          <p>
-            We prepare your custom 3D model.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">03</div>
-
-          <h3>We Print</h3>
-
-          <p>
-            Your Pibbo comes to life.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">04</div>
-
-          <h3>Meet Your Pibbo</h3>
-
-          <p>
-            Your miniature is ready!
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-  <section id="about">
-
-    <div class="section-container">
-
-      <div class="about-grid">
-
-        <div class="about-box">
-
-          <h2>WE ARE PIBBOS.</h2>
-
-          <p>
-            Curious. Creative. A little different.
-          </p>
-
-          <br>
-
-          <p>
-            We believe every idea deserves to become
-            something you can hold, display and enjoy.
-          </p>
-
-        </div>
-
-
-        <div class="about-text">
-
-          <h2>WELCOME TO OUR LITTLE WORLD.</h2>
-
-          <p>
-            Pibbo Town is a creative 3D printing studio
-            focused on customized miniatures and
-            made-to-order 3D printed creations.
-          </p>
-
-          <br>
-
-          <p>
-            Whether it is a gift, a memory, a character
-            or your own idea, we're here to make it real.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CTA -->
-  <section class="cta" id="contact">
-
-    <div class="section-container">
-
-      <h2>READY TO CREATE YOUR PIBBO?</h2>
-
-      <p>
-        Tell us your idea and let's turn it into
-        something real.
-      </p>
-
-      <div class="buttons" style="justify-content:center;">
-
-        <a href="mailto:hello@pibbotown.com"
-           class="button"
-           style="background:#F7C13B;color:#2E341A;">
-          ✉️ Contact Pibbo Town
+        <a
+          href="#"
+          class="button button-light"
+          data-whatsapp-link
+        >
+          Chat on WhatsApp
         </a>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- FOOTER -->
-  <footer>
+    <!-- =========================
+         SMALL ABOUT
+    ========================== -->
 
-    <div class="footer-container">
+    <section class="about-preview">
 
-      <div>
-        <h2 style="color:#F7C13B;">
-          🦎 Pibbo Town
-        </h2>
+      <div class="container about-preview-inner">
 
-        <p>
-          Custom 3D miniatures & 3D printing.
-        </p>
+        <div>
+          <p class="section-label">
+            ABOUT PIBBOTOWN
+          </p>
+
+          <h2>
+            Little keepsakes.
+            Big memories.
+          </h2>
+        </div>
+
+        <div class="about-preview-text">
+
+          <p>
+            We turn your favourite people and memories
+            into personalised 3D miniatures, made from
+            your photos and crafted with care.
+          </p>
+
+          <a
+            href="about.html"
+            class="text-link"
+          >
+            About PibboTown →
+          </a>
+
+        </div>
+
       </div>
 
-      <div>
-        <p>
-          Made with creativity in Pibbo Town.
-        </p>
+    </section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section
+      class="products-section"
+      id="products"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="section-label">
+              OUR MINIATURES
+            </p>
+
+            <h2>
+              Choose your Pibbo.
+            </h2>
+          </div>
+
+          <p>
+            Pick the style that feels right
+            for your memory.
+          </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+          <!-- PRODUCT 1 -->
+
+          <article class="product-card">
+
+            <div class="product-image">
+              <div class="product-placeholder">
+                Product image
+              </div>
+            </div>
+
+            <div class="product-card-content">
+
+              <p class="product-type">
+                FULL BODY
+              </p>
+
+              <h3>
+                3D Miniature
+              </h3>
+
+              <p>
+                A personalised miniature
+                made from your photos.
+              </p>
+
+              <div class="product-card-bottom">
+
+                <span class="starting-price">
+                  Starting price
+                </span>
+
+                <a
+                  href="product.html?product=3d-miniature"
+                  class="product-link"
+                >
+                  View Product →
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 2 -->
+
+          <article class="product-card">
+
+            <div class="product-image">
+              <div class="product-placeholder">
+                Product image
+              </div>
+            </div>
+
+            <div class="product-card-content">
+
+              <p class="product-type">
+                HALF BODY
+              </p>
+
+              <h3>
+                Burst Miniature
+              </h3>
+
+              <p>
+                A playful half-body miniature
+                created from your photos.
+              </p>
+
+              <div class="product-card-bottom">
+
+                <span class="starting-price">
+                  Starting price
+                </span>
+
+                <a
+                  href="product.html?product=burst-miniature"
+                  class="product-link"
+                >
+                  View Product →
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 3 -->
+
+          <article class="product-card">
+
+            <div class="product-image">
+              <div class="product-placeholder">
+                Product image
+              </div>
+            </div>
+
+            <div class="product-card-content">
+
+              <p class="product-type">
+                DISPLAY FRAME
+              </p>
+
+              <h3>
+                3D Frame
+              </h3>
+
+              <p>
+                A special framed keepsake
+                made to display your memory.
+              </p>
+
+              <div class="product-card-bottom">
+
+                <span class="starting-price">
+                  Starting price
+                </span>
+
+                <a
+                  href="product.html?product=3d-frame"
+                  class="product-link"
+                >
+                  View Product →
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
       </div>
 
-    </div>
+    </section>
 
-    <div class="copyright">
-      © 2026 Pibbo Town. All rights reserved.
+
+    <!-- =========================
+         PROCESS
+    ========================== -->
+
+    <section class="process-section">
+
+      <div class="container">
+
+        <div class="section-heading process-heading">
+
+          <div>
+            <p class="section-label">
+              HOW IT WORKS
+            </p>
+
+            <h2>
+              From photo to keepsake.
+            </h2>
+          </div>
+
+          <p>
+            Simple from start to finish.
+            You send the photos — we handle the rest.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+          <article class="process-step">
+
+            <span class="step-number">
+              01
+            </span>
+
+            <div class="step-icon">
+              📷
+            </div>
+
+            <h3>
+              Send Your Photos
+            </h3>
+
+            <p>
+              Share clear photos of
+              the person or people.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <span class="step-number">
+              02
+            </span>
+
+            <div class="step-icon">
+              ✏️
+            </div>
+
+            <h3>
+              We Create the Design
+            </h3>
+
+            <p>
+              We create the 3D design
+              based on your photos.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <div class="step-icon">
+              ✓
+            </div>
+
+            <h3>
+              You Approve
+            </h3>
+
+            <p>
+              We show you the design
+              before production.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <span class="step-number">
+              04
+            </span>
+
+            <div class="step-icon">
+              🛠
+            </div>
+
+            <h3>
+              We Print & Finish
+            </h3>
+
+            <p>
+              We carefully create,
+              print and finish your miniature.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <span class="step-number">
+              05
+            </span>
+
+            <div class="step-icon">
+              🎁
+            </div>
+
+            <h3>
+              Ready For You
+            </h3>
+
+            <p>
+              Your personalised keepsake
+              is packed and delivered.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PIBBO SCROLL STORY
+    ========================== -->
+
+    <section
+      class="pibbo-story"
+      id="pibbo-story"
+    >
+
+      <div class="pibbo-story-sticky">
+
+        <div class="container pibbo-story-inner">
+
+          <div class="pibbo-story-text">
+
+            <p class="section-label">
+              BEHIND THE MAGIC
+            </p>
+
+            <h2 id="pibbo-story-title">
+              Send us your photo.
+            </h2>
+
+            <p id="pibbo-story-description">
+              Pibbo is ready to get to work.
+            </p>
+
+          </div>
+
+
+          <div class="pibbo-character-area">
+
+            <!--
+              TEMPORARY MASCOT
+
+              Your official Pibbo/chameleon asset
+              will be placed here later.
+            -->
+
+            <div
+              class="pibbo-character"
+              id="pibbo-character"
+            >
+              🦎
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         OUR WORK
+    ========================== -->
+
+    <section class="work-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="section-label">
+              MADE BY PIBBOTOWN
+            </p>
+
+            <h2>
+              See what we create.
+            </h2>
+          </div>
+
+          <p>
+            Real creations. Real memories.
+            Made into something you can keep.
+          </p>
+
+        </div>
+
+
+        <div class="work-grid">
+
+          <div class="work-image work-large">
+            <div class="work-placeholder">
+              Your miniature
+            </div>
+          </div>
+
+          <div class="work-image">
+            <div class="work-placeholder">
+              Your miniature
+            </div>
+          </div>
+
+          <div class="work-image">
+            <div class="work-placeholder">
+              Your miniature
+            </div>
+          </div>
+
+          <div class="work-image">
+            <div class="work-placeholder">
+              Your miniature
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BENEFITS
+    ========================== -->
+
+    <section class="benefits-section">
+
+      <div class="container">
+
+        <div class="benefits-heading">
+
+          <p class="section-label">
+            WHY PIBBOTOWN
+          </p>
+
+          <h2>
+            Made personal.
+            Made with care.
+          </h2>
+
+        </div>
+
+
+        <div class="benefits-grid">
+
+          <div class="benefit">
+            <span>01</span>
+
+            <h3>
+              Customer Support
+            </h3>
+
+            <p>
+              We're here to help you
+              through the process.
+            </p>
+          </div>
+
+
+          <div class="benefit">
+            <span>02</span>
+
+            <h3>
+              Made From Your Photos
+            </h3>
+
+            <p>
+              Your miniature begins
+              with your own memory.
+            </p>
+          </div>
+
+
+          <div class="benefit">
+            <span>03</span>
+
+            <h3>
+              Design Approval
+            </h3>
+
+            <p>
+              We show you the design
+              before production.
+            </p>
+          </div>
+
+
+          <div class="benefit">
+            <span>04</span>
+
+            <h3>
+              Carefully Packed
+            </h3>
+
+            <p>
+              Your keepsake is prepared
+              carefully for delivery.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-main">
+
+        <div class="footer-brand">
+
+          <img
+            src="Logo.png"
+            alt="PibboTown"
+            class="footer-logo"
+          >
+
+          <p>
+            Your memories,
+            made miniature.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Quick Links
+          </h3>
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="#products">
+            Products
+          </a>
+
+          <a href="about.html">
+            About Us
+          </a>
+
+          <a href="#">
+            FAQs
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Contact
+          </h3>
+
+          <a
+            href="#"
+            data-whatsapp-link
+          >
+            WhatsApp
+          </a>
+
+          <a href="mailto:YOUR_EMAIL@example.com">
+            Email
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Social
+          </h3>
+
+          <a href="#" target="_blank" rel="noopener">
+            Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          © <span id="current-year"></span> PibboTown.
+          All rights reserved.
+        </p>
+
+        <p>
+          Made for memories.
+        </p>
+
+      </div>
+
     </div>
 
   </footer>
+
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
 
 </body>
 </html>
